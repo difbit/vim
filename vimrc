@@ -1,3 +1,10 @@
+"     	       _
+"       __   _(_)_ __ ___  _ __ ___
+"       \ \ / / | '_ ` _ \| '__/ __|
+"        \ V /| | | | | | | | | (__
+"         \_/ |_|_| |_| |_|_|  \___|
+"
+"
 " All system-wide defaults are set in $VIMRUNTIME/debian.vim and sourced by
 " the call to :runtime you can find below.  If you wish to change any of those
 " settings, you should do it in this file (/etc/vim/vimrc), since debian.vim
@@ -8,14 +15,9 @@
 " This line should not be removed as it ensures that various options are
 " properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
-
-" Uncomment the next line to make Vim more Vi-compatible
-" NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes numerous
-" options, so any other options should be set AFTER setting 'compatible'.
-"set compatible
-
-" Vim5 and later versions support syntax highlighting. Uncommenting the next
-" line enables syntax highlighting by default.
+"
+"
+"
 if has("syntax")
   syntax on
 endif
@@ -73,11 +75,20 @@ call plug#begin('~/.vim/plugged')
 	Plug 'scrooloose/nerdtree'
 	Plug 'Xuyuanp/nerdtree-git-plugin'
 	Plug 'flazz/vim-colorschemes'
-	Plug 'vim-python/python-syntax'
+	Plug 'junegunn/goyo.vim'
 call plug#end()
 
 let g:python_highlight_all = 1
 
+
+" 80 character line highlight
+" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+" match OverLength /\%81v.\+/
+
+" normal 80 character line:
+:set colorcolumn=80
+highlight ColorColumn ctermbg=8
+
 syntax on
 
-colorscheme neon
+colorscheme ps_color
