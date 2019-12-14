@@ -22,6 +22,10 @@ if has("syntax")
   syntax on
 endif
 
+
+" Setting for indents that consist of 4 space characters but are entered with the tab key:
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
 set background=dark
@@ -71,12 +75,12 @@ augroup commentgroup
 augroup END
 
 
-call plug#begin('~/.vim/plugged')
-	Plug 'scrooloose/nerdtree'
-	Plug 'Xuyuanp/nerdtree-git-plugin'
-	Plug 'flazz/vim-colorschemes'
-	Plug 'junegunn/goyo.vim'
-call plug#end()
+"call plug#begin('~/.vim/plugged')
+"	Plug 'scrooloose/nerdtree'
+"	Plug 'Xuyuanp/nerdtree-git-plugin'
+"	Plug 'flazz/vim-colorschemes'
+"	Plug 'junegunn/goyo.vim'
+"call plug#end()
 
 let g:python_highlight_all = 1
 
@@ -91,4 +95,4 @@ highlight ColorColumn ctermbg=8
 
 syntax on
 
-colorscheme ps_color
+"colorscheme ps_color
