@@ -90,7 +90,7 @@ let g:python_highlight_all = 1
 " match OverLength /\%81v.\+/
 
 " normal 80 character line:
-:set colorcolumn=80
+:set colorcolumn=88
 highlight ColorColumn ctermbg=8
 
 syntax on
