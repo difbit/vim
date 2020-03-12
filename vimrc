@@ -95,4 +95,10 @@ highlight ColorColumn ctermbg=8
 
 syntax on
 
+"
+"
+:nnoremap <leader>z viw<esc>a)<esc>hbi(<esc>lel
+:nnoremap <leader>x viw<esc>a"<esc>hbi"<esc>lel
+:nnoremap <leader>c viw<esc>a'<esc>hbi'<esc>lel
+
 "colorscheme ps_color
