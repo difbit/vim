@@ -4,18 +4,10 @@
 "        \ V /| | | | | | | | | (__
 "         \_/ |_|_| |_| |_|_|  \___|
 "
-"
-" All system-wide defaults are set in $VIMRUNTIME/debian.vim and sourced by
-" the call to :runtime you can find below.  If you wish to change any of those
-" settings, you should do it in this file (/etc/vim/vimrc), since debian.vim
-" will be overwritten everytime an upgrade of the vim packages is performed.
-" It is recommended to make changes after sourcing debian.vim since it alters
-" the value of the 'compatible' option.
 
 " This line should not be removed as it ensures that various options are
 " properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
-"
 "
 "
 if has("syntax")
@@ -45,8 +37,8 @@ set background=dark
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
 "set showcmd		" Show (partial) command in status line.
-"set showmatch		" Show matching brackets.
-"set ignorecase		" Do case insensitive matching
+set showmatch		" Show matching brackets.
+set ignorecase		" Do case insensitive matching
 "set smartcase		" Do smart case matching
 "set incsearch		" Incremental search
 "set autowrite		" Automatically save before commands like :next and :make
@@ -58,16 +50,20 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
-" Some basics
-	set number relativenumber
+
+" Relative numbering
+" set relativenumber
+" set number
+set foldcolumn=3
 
 " Automatically deletes all trailing whitespaces on save.
-	autocmd BufWritePre * %s/\s\+$//e
+autocmd BufWritePre * %s/\s\+$//e
 
-" Use ,cc to comment out and ,cu to uncomment
 
+" mapleader pointed to ,
 let mapleader=","
 
+" Use ,cc to comment out and ,cu to uncomment
 augroup commentgroup
     autocmd FileType sh,ruby,python    let b:comment_leader = '# '
     noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
@@ -95,8 +91,7 @@ highlight ColorColumn ctermbg=8
 
 syntax on
 
-"
-"
+" Write ','+'z' to add brackets
 :nnoremap <leader>z viw<esc>a)<esc>hbi(<esc>lel
 :nnoremap <leader>x viw<esc>a"<esc>hbi"<esc>lel
 :nnoremap <leader>c viw<esc>a'<esc>hbi'<esc>lel
