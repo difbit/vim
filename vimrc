@@ -15,6 +15,7 @@ if has("syntax")
 endif
 
 
+
 " Setting for indents that consist of 4 space characters but are entered with the tab key:
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
@@ -50,6 +51,7 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
+set nowrap
 
 " Relative numbering
 " set relativenumber
@@ -63,13 +65,16 @@ autocmd BufWritePre * %s/\s\+$//e
 " mapleader pointed to ,
 let mapleader=","
 
-" Use ,cc to comment out and ,cu to uncomment
+" Use ,cc to comment out and ,cu to uncomment Python
 augroup commentgroup
     autocmd FileType sh,ruby,python    let b:comment_leader = '# '
-    noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
-    noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+    noremap <silent> <leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+    noremap <silent> <leader>cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 augroup END
 
+" Mappings to comment out and to uncomment XML/HTML
+map <leader>d :s/^\(.*\)$/<!-- \1 -->/<CR>:nohlsearch<CR>
+map <leader>f :s/^\([/(]\*\\|<!--\) \(.*\) \(\*[/)]\\|-->\)$/\2/<CR>
 
 "call plug#begin('~/.vim/plugged')
 "	Plug 'scrooloose/nerdtree'
