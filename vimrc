@@ -101,4 +101,7 @@ syntax on
 :nnoremap <leader>x viw<esc>a"<esc>hbi"<esc>lel
 :nnoremap <leader>c viw<esc>a'<esc>hbi'<esc>lel
 
+" Quicker way to replace stuff, so just press 'S'
+:nnoremap S :%s//g<Left><Left>
+
 "colorscheme ps_color
