@@ -14,7 +14,41 @@ if has("syntax")
   syntax on
 endif
 
+" In case automatic PlugInstall is wanted. These commands need to placed
+" before plug#begin
+" if empty(glob('~/.vim/autoload/plug.vim'))
+"   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+"     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+" endif
 
+" Write PlugInstall when in command mode to install plugins
+call plug#begin('~/.vim/plugged')
+"   Plug 'scrooloose/nerdtree'
+"   Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'flazz/vim-colorschemes'
+    Plug 'junegunn/goyo.vim'
+call plug#end()
+
+" Some colorschemes. Note to self: many of the old colorschemes are broken
+" colorscheme ps_color
+"
+" This one is nice :)
+" colorscheme 1989
+"
+" This is good too
+" colorscheme VIvid
+" Pretty calm one
+" colorscheme inori
+colorscheme astronaut
+
+
+
+" Splits open at the right and bottom
+set splitbelow splitright
+
+" Autocompletion on command mode
+" set wildmode=longest,list,full
 
 " Setting for indents that consist of 4 space characters but are entered with the tab key:
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
@@ -56,7 +90,9 @@ set wrap
 " Relative numbering
 " set relativenumber
 " set number
-set foldcolumn=3
+
+" To add column to the beginging
+" set foldcolumn=3
 
 " Automatically deletes all trailing whitespaces on save.
 autocmd BufWritePre * %s/\s\+$//e
@@ -76,12 +112,6 @@ augroup END
 map <leader>d :s/^\(.*\)$/<!-- \1 -->/<CR>:nohlsearch<CR>
 map <leader>f :s/^\([/(]\*\\|<!--\) \(.*\) \(\*[/)]\\|-->\)$/\2/<CR>
 
-"call plug#begin('~/.vim/plugged')
-"	Plug 'scrooloose/nerdtree'
-"	Plug 'Xuyuanp/nerdtree-git-plugin'
-"	Plug 'flazz/vim-colorschemes'
-"	Plug 'junegunn/goyo.vim'
-"call plug#end()
 
 let g:python_highlight_all = 1
 
@@ -104,4 +134,6 @@ syntax on
 " Quicker way to replace stuff, so just press 'S'
 :nnoremap S :%s//g<Left><Left>
 
-"colorscheme ps_color
+" Quick Goyo commands
+:nnoremap goo :Goyo
+:nnoremap goi :Goyo!
