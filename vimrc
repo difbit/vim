@@ -137,3 +137,6 @@ syntax on
 " Quick Goyo commands
 :nnoremap goo :Goyo
 :nnoremap goi :Goyo!
+
+" jk remapped to behave as ESC
+:inoremap jk <esc>
