@@ -16,11 +16,11 @@ endif
 
 " In case automatic PlugInstall is wanted. These commands need to placed
 " before plug#begin
-" if empty(glob('~/.vim/autoload/plug.vim'))
-"   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-"     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-"   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-" endif
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 " Write PlugInstall when in command mode to install plugins
 call plug#begin('~/.vim/plugged')
@@ -34,13 +34,13 @@ call plug#end()
 " colorscheme ps_color
 "
 " This one is nice :)
-" colorscheme 1989
+colorscheme 1989
 "
 " This is good too
 " colorscheme VIvid
 " Pretty calm one
 " colorscheme inori
-colorscheme astronaut
+" colorscheme astronaut
 
 
 
@@ -51,7 +51,7 @@ set splitbelow splitright
 " set wildmode=longest,list,full
 
 " Setting for indents that consist of 4 space characters but are entered with the tab key:
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
