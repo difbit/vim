@@ -51,7 +51,7 @@ set splitbelow splitright
 " set wildmode=longest,list,full
 
 " Setting for indents that consist of 4 space characters but are entered with the tab key:
-set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
