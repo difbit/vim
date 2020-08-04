@@ -34,13 +34,13 @@ call plug#end()
 " colorscheme ps_color
 "
 " This one is nice :)
-colorscheme 1989
+" colorscheme 1989
 "
 " This is good too
 " colorscheme VIvid
 " Pretty calm one
 " colorscheme inori
-" colorscheme astronaut
+colorscheme astronaut
 
 
 
@@ -137,6 +137,8 @@ syntax on
 " Quick Goyo commands
 :nnoremap goo :Goyo
 :nnoremap goi :Goyo!
+
+:inoremap ' "
 
 " jk remapped to behave as ESC
 :inoremap jk <esc>
