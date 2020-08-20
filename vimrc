@@ -40,7 +40,7 @@ call plug#end()
 " colorscheme VIvid
 " Pretty calm one
 " colorscheme inori
-colorscheme astronaut
+" colorscheme astronaut
 
 
 
@@ -138,7 +138,8 @@ syntax on
 :nnoremap goo :Goyo
 :nnoremap goi :Goyo!
 
-:inoremap ' "
+" This is not so usable
+" :inoremap ' "
 
 " jk remapped to behave as ESC
 :inoremap jk <esc>
