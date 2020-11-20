@@ -130,6 +130,13 @@ syntax on
 :nnoremap <leader>z viw<esc>a)<esc>hbi(<esc>lel
 :nnoremap <leader>x viw<esc>a"<esc>hbi"<esc>lel
 :nnoremap <leader>c viw<esc>a'<esc>hbi'<esc>lel
+:nnoremap <leader>v viw<esc>a]<esc>hbi[<esc>lel
+:nnoremap <leader>< viw<esc>a}<esc>hbi{<esc>lel
+
+" Write empty brackets
+:nnoremap <leader>a a() <esc><right>
+:nnoremap <leader>w a[] <esc><right>
+:nnoremap <leader>e a{} <esc><right>
 
 " Quicker way to replace stuff, so just press 'S'
 :nnoremap S :%s//g<Left><Left>
