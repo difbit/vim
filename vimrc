@@ -34,14 +34,13 @@ call plug#end()
 " colorscheme ps_color
 "
 " This one is nice :)
-" colorscheme 1989
+colorscheme 1989
 "
 " This is good too
 " colorscheme VIvid
 " Pretty calm one
 " colorscheme inori
 " colorscheme astronaut
-
 
 
 " Splits open at the right and bottom
@@ -59,9 +58,9 @@ set background=dark
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
-"if has("autocmd")
-"  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-"endif
+" if has("autocmd")
+"   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+" endif
 
 " Uncomment the following to have Vim load indentation rules and plugins
 " according to the detected filetype.
@@ -97,7 +96,6 @@ set wrap
 " Automatically deletes all trailing whitespaces on save.
 autocmd BufWritePre * %s/\s\+$//e
 
-
 " mapleader pointed to ,
 let mapleader=","
 
@@ -112,9 +110,7 @@ augroup END
 map <leader>d :s/^\(.*\)$/<!-- \1 -->/<CR>:nohlsearch<CR>
 map <leader>f :s/^\([/(]\*\\|<!--\) \(.*\) \(\*[/)]\\|-->\)$/\2/<CR>
 
-
 let g:python_highlight_all = 1
-
 
 " 80 character line highlight
 " highlight OverLength ctermbg=red ctermfg=white guibg=#592929
@@ -129,7 +125,7 @@ syntax on
 " Write ','+'z' to add brackets
 :nnoremap <leader>z viw<esc>a)<esc>hbi(<esc>lel
 :nnoremap <leader>x viw<esc>a"<esc>hbi"<esc>lel
-:nnoremap <leader>c viw<esc>a'<esc>hbi'<esc>lel
+:nnoremap <leader>q viw<esc>a'<esc>hbi'<esc>lel
 :nnoremap <leader>v viw<esc>a]<esc>hbi[<esc>lel
 :nnoremap <leader>< viw<esc>a}<esc>hbi{<esc>lel
 
@@ -144,9 +140,6 @@ syntax on
 " Quick Goyo commands
 :nnoremap goo :Goyo
 :nnoremap goi :Goyo!
-
-" This is not so usable
-" :inoremap ' "
 
 " jk remapped to behave as ESC
 :inoremap jk <esc>
