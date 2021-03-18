@@ -90,7 +90,7 @@ set wrap
 let g:loaded_matchparen=1
 
 " Relative numbering
-" set relativenumber
+set relativenumber
 " set number
 
 " To add column to the beginging
