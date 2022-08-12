@@ -28,10 +28,13 @@ call plug#begin('~/.vim/plugged')
 "   Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'flazz/vim-colorschemes'
     Plug 'junegunn/goyo.vim'
+    Plug 'chrisbra/csv.vim'
 call plug#end()
 
+:filetype plugin on
+
 " Some colorschemes. Note to self: many of the old colorschemes are broken
-" colorscheme ps_color
+colorscheme ps_color
 "
 " This one is nice :)
 " colorscheme 1989
@@ -50,7 +53,7 @@ set splitbelow splitright
 " set wildmode=longest,list,full
 
 " Setting for indents that consist of 4 space characters but are entered with the tab key:
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
@@ -112,6 +115,7 @@ augroup END
 " Mappings to comment out and to uncomment XML/HTML
 map <leader>d :s/^\(.*\)$/<!-- \1 -->/<CR>:nohlsearch<CR>
 map <leader>f :s/^\([/(]\*\\|<!--\) \(.*\) \(\*[/)]\\|-->\)$/\2/<CR>
+" Convert each name_like_this to NameLikeThis in current line.
 
 let g:python_highlight_all = 1
 
@@ -146,3 +150,24 @@ syntax on
 
 " jk remapped to behave as ESC
 :inoremap jk <esc>
+
+" Change name_like_this to NameLikeThis
+:nnoremap <leader>o viw::s#\(\%(\<\l\+\)\%(_\)\@=\)\\|_\(\l\)#\u\1\2#g
+
+" Highlight a column in csv text.
+" :Csv 1    " highlight first column
+" :Csv 12   " highlight twelfth column
+" :Csv 0    " switch off highlight
+function! CSVH(colnr)
+  if a:colnr > 1
+    let n = a:colnr - 1
+    execute 'match Keyword /^\([^,]*,\)\{'.n.'}\zs[^,]*/'
+    execute 'normal! 0'.n.'f,'
+  elseif a:colnr == 1
+    match Keyword /^[^,]*/
+    normal! 0
+  else
+    match
+  endif
+endfunction
+command! -nargs=1 Csv :call CSVH(<args>)
